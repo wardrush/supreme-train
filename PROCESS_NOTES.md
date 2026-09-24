@@ -19,6 +19,8 @@ Status is open, done, or won't-fix.
    - Fix [prompt]: state the intent ("config reviewable in the repo, least moving parts") instead of the mechanism, and keep the "read current docs first" line. That line caught this one. **open**
 2. Branch name mismatch. The prompt said `main`, but the repo default is `master`. The PR targets `master`, and the docs were patched mid-session.
    - Fix [gh]: rename the default branch to `main` (GitHub → repo → Settings → Default branch; this works on mobile web, not in the app). Otherwise, say `master` in prompts. **open**
+2b. Existing infrastructure wasn't mentioned. The Railway service had already been created and wired to auto-deploy from `master`, but the prompt didn't say so. The session wrote "create a new service" instructions, which were wasted steps.
+   - Fix [prompt]: add one line on what already exists ("Railway service X exists, deploys from master, no variables set yet"). **open**
 3. The one-question-at-a-time rule worked. A single multiple-choice question with a recommended option can be answered on a phone in about 5 seconds. Keep it. **done**
 
 ## Phase 2: Build and verify in the sandbox
