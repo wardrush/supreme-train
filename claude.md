@@ -37,6 +37,7 @@ global.json                 SDK 10.0.x, opts dotnet test into Microsoft.Testing.
 YtDownloader.sln
 README.md                   env vars, API codes, local run, Railway dashboard steps, updating YoutubeExplode, known risks
 claude.md                   this file
+PROCESS_NOTES.md            running log of phone-workflow friction + fixes; append every session
 src/YtDownloader/
   Program.cs                wiring: PORT, forwarded headers, rate limiter, auth, static files, endpoints, startup refusal (exit 1)
   AppOptions.cs             env var parsing and validation
@@ -53,6 +54,8 @@ tests/YtDownloader.Tests/
 ```
 
 ## Next steps
+
+0. Every session: append workflow friction to PROCESS_NOTES.md (the user asked for this running log).
 
 1. Railway: create the service from the repo, set `APP_PASSWORD`, healthcheck `/healthz`, restart `On Failure`, and generate a domain.
 2. Try one short video in each format from the phone. If you get `bot_check` or `blocked`, see README "Known risks" and ask the user before adding a proxy or cookies.
