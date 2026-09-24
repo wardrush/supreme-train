@@ -70,11 +70,11 @@ docker run --rm -p 8080:8080 -e APP_PASSWORD=change-me ytdl
 
 ## Deploy on Railway
 
-The deploy path is: merge to `main`, then Railway's GitHub integration builds the root `Dockerfile` and deploys it.
+The deploy path is: merge to `master` (this repo's default branch), then Railway's GitHub integration builds the root `Dockerfile` and deploys it.
 
 There is no `railway.json` in this repo on purpose. As of 2026-09, Railway's docs mark Config as Code as deprecated. New services cannot opt in, and existing files stop being read on 2026-12-01. The few settings this app needs are set once in the dashboard instead (all of it works from the phone):
 
-1. New project, then Deploy from GitHub repo, then pick this repo (branch `main`). Railway logs "Using detected Dockerfile!".
+1. New project, then Deploy from GitHub repo, then pick this repo (branch `master`). Railway logs "Using detected Dockerfile!".
 2. Service, then Variables: add `APP_PASSWORD` (and optionally `MAX_DURATION_MINUTES`, etc.).
 3. Service, then Settings, then Deploy:
    - Healthcheck Path: `/healthz`

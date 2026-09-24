@@ -6,7 +6,7 @@ Read this first. It is 30 seconds of context instead of re-reading the code.
 
 Goal: a personal, password-gated web tool that turns a YouTube URL into an mp4 or mp3, built on YoutubeExplode plus Converter, hosted on Railway, and operable from a phone.
 
-Done (branch `claude/youtube-downloader-tool-ic7kfr`, PR open against `main`):
+Done (branch `claude/youtube-downloader-tool-ic7kfr`, PR open against `master` (the default branch; the spec said main)):
 - ASP.NET Core minimal API on .NET 10 LTS: `POST /api/convert`, `GET /healthz`, and a static page.
 - Shared-password middleware (header or cookie, constant-time over SHA-256). The app refuses to start without `APP_PASSWORD`.
 - Per-IP fixed-window rate limit on all `/api/*` (failed logins count), a duration cap, and a one-at-a-time gate (429 when busy).
@@ -74,7 +74,7 @@ dotnet build -c Release && dotnet test -c Release
 APP_PASSWORD=change-me dotnet run --project src/YtDownloader
 docker build -t ytdl . && docker run --rm -p 8080:8080 -e APP_PASSWORD=change-me ytdl
 
-# deploy: merge the PR into main; Railway's GitHub integration builds the Dockerfile and deploys.
+# deploy: merge the PR into master; Railway's GitHub integration builds the Dockerfile and deploys.
 ```
 
 In this cloud sandbox, Docker needs `dockerd &` started first, and builds need the proxy CA. A throwaway `Dockerfile.sandbox` with a `--build-context ccr=/root/.ccr` CA step was used for this. It is not committed.
